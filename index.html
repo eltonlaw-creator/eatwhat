@@ -38,73 +38,83 @@
 
 <script>
 const defaultPool = [
-  // —— 已有 100 道 (原始菜品保留，不重复) —— 
-  "肉骨茶 Bak Kut Teh","炒粿条 Char Kway Teow","福建面 Hokkien Mee","云吞面 Wantan Mee","干捞面 Dry Noodles",
-  "砂煲鸡饭 Claypot Chicken Rice","咸蛋鸡 Salted Egg Chicken","海南鸡饭 Hainanese Chicken Rice","咖喱面 Curry Mee","叻沙 Laksa",
-  "瓦煲亚参鱼 Assam Fish","清蒸金目鲈 Steamed Seabass","煲仔饭 Claypot Rice","咕噜肉 Sweet & Sour Pork","鱼头米粉 Fish Head Bee Hoon",
-  "炒米粉 Fried Bee Hoon","粥品 Congee","烧腊饭 Roast Meat Rice","蒸点 Dim Sum",
+  // —— 华人小贩/煮炒 (80 道) ——
+  "炒粿条 Char Kway Teow","福建面 Hokkien Mee","云吞面 Wantan Mee","干捞面 Dry Noodles","砂煲鸡饭 Claypot Chicken Rice",
+  "海南鸡饭 Hainanese Chicken Rice","咖喱面 Curry Mee","叻沙 Laksa","瓦煲亚参鱼 Assam Fish","清蒸金目鲈 Steamed Seabass",
+  "煲仔饭 Claypot Rice","咕噜肉 Sweet & Sour Pork","鱼头米粉 Fish Head Bee Hoon","炒米粉 Fried Bee Hoon","粥品 Congee",
+  "烧腊饭 Roast Meat Rice","蒸点 Dim Sum","鸡饭粒 Chicken Rice Ball","老鼠粉 Lou Shu Fan","酿豆腐 Yong Tau Foo",
+  "板面 Pan Mee","炒粿角 Char Kuey Kak","卤肉饭 Braised Pork Rice","东炎炒饭 Tom Yum Fried Rice","咸鱼鸡粒炒饭 Salted Fish Chicken Fried Rice",
+  "招牌炒饭 Signature Fried Rice","扬州炒饭 Yang Zhou Fried Rice","三丝炒米粉 Fried Vermicelli with Shredded Meat","月光河 Moonlight Hor Fun",
+  "港式云吞面 HK Wantan Mee","港式烧鸭饭 Roast Duck Rice","白切鸡饭 Poached Chicken Rice","客家酿豆腐 Hakka Yong Tau Foo",
+  "客家炸肉 Hakka Fried Pork","客家猪肉粉 Hakka Pork Noodles","梅菜扣肉饭 Preserved Veg Pork Rice","豉汁排骨饭 Pork Ribs Rice",
+  "肉碎面 Minced Pork Noodles","干炒牛河 Beef Hor Fun","星洲米粉 Singapore Bee Hoon","XO 酱炒米粉 XO Fried Vermicelli",
+  "海鲜炒面 Seafood Fried Noodles","蚝煎 Oyster Omelette","芙蓉蛋 Fu Yong Egg with Rice","鱼片粥 Fish Porridge","皮蛋瘦肉粥 Century Egg Porridge",
+  "肉骨茶 Bak Kut Teh","酱油鸡饭 Soy Sauce Chicken Rice","姜葱鱼片饭 Ginger Fish Fillet Rice","黑胡椒牛柳饭 Black Pepper Beef Rice",
+  "三杯鸡饭 Three-cup Chicken Rice","宫保鸡丁饭 Kung Pao Chicken Rice","鱼香茄子饭 Yu Xiang Eggplant Rice","豉油皇炒面 Soy Sauce Fried Noodles",
+  "鱼片米粉 Fish Fillet Bee Hoon","啦啦炒米粉 Lala Bee Hoon","啦啦汤米粉 Lala Soup Bee Hoon","姜葱田鸡饭 Ginger Frog with Rice",
+  "田鸡粥 Frog Porridge","港式猪扒饭 HK Pork Chop Rice","港式焗饭 HK Baked Rice","咖喱猪排饭 Curry Pork Chop Rice","麦片虾饭 Butter Cereal Prawn Rice",
+  "咸蛋虾饭 Salted Egg Prawn Rice","铁板豆腐饭 Hotplate Tofu with Rice","沙煲豆腐饭 Claypot Tofu Rice","蒜蓉芥兰饭 Garlic Kailan Rice",
+  "清炒菠菜饭 Stir-fried Spinach with Rice","蒜香排骨饭 Garlic Pork Ribs Rice","椒盐苏东饭 Salt & Pepper Squid Rice","咸鱼花腩煲饭 Salted Fish Pork Belly Rice",
+  "炒伊面 Fried Yee Mee","双拼烧腊饭 2-Combination Roast Meat Rice","三拼烧腊饭 3-Combination Roast Meat Rice","潮州粥套餐 Teochew Porridge Set",
+  "港式叉烧饭 Char Siew Rice","港式烧肉饭 Siew Yoke Rice","港式烧鹅饭 Roast Goose Rice","豆酱蒸鱼饭 Steamed Fish with Bean Paste Rice",
+  "蒜茸蒸虾饭 Steamed Garlic Prawns Rice","梅菜蒸肉饼饭 Steamed Pork Patty with Preserved Veg Rice","香菇滑鸡煲饭 Claypot Chicken with Mushroom Rice",
+  "豉汁蒸排骨饭 Steamed Pork Ribs with Black Bean Rice","清蒸石斑饭 Steamed Grouper Rice",
+
+  // —— 马来 & Mamak 档 (60 道) ——
   "椰浆饭 Nasi Lemak","仁当牛肉 Beef Rendang","马来炒面 Mee Goreng Mamak","炒饭 Nasi Goreng","沙爹 Satay",
   "亚参叻沙 Assam Laksa","罗惹 Rojak","乌达 Otak-otak","参峇鱿鱼 Sambal Sotong","参峇空心菜 Kangkung Belacan",
-  "甘榜炸鸡 Ayam Goreng Kampung","马来烤鱼 Ikan Bakar","马来羊杂 Sup Kambing","黄姜饭 Nasi Kunyit",
-  "印度煎饼 Roti Canai","飞饼 Roti Tisu","印度甩饼 Murtabak","扁担饭 Nasi Kandar","炭炉烤鸡 Tandoori Chicken",
-  "烤饼配咖喱 Naan Set","香料饭 Briyani","马沙拉多萨 Masala Dosa",
-  "沙巴海鲜 Sabah Seafood","砂拉越干盘面 Sarawak Kolo Mee","客家面 Hakka Mee","叻沙海鲜面 Seafood Laksa",
-  "煎蕊 Cendol","红豆冰 ABC","炸香蕉 Pisang Goreng","咖椰面包 Kaya Toast","半生熟蛋 Soft-boiled Eggs",
-  "泰式罗勒炒肉 Pad Kra Pao","冬阴功 Tom Yum","泰式猪脚饭 Thai Pork Leg Rice","打抛鸡 Basil Chicken Rice",
-  "越南河粉 Pho","越南春卷 Spring Roll","芒果糯米饭 Mango Sticky Rice",
-  "鸡排饭 Chicken Chop","炸鱼薯条 Fish & Chips","黑椒牛排 Black Pepper Steak","奶油意面 Cream Pasta","披萨 Pizza",
-  "汉堡 Burger","热狗 Hotdog","奶油蘑菇汤 Mushroom Soup","凯撒沙拉 Caesar Salad","蒜香面包 Garlic Bread",
-  "宫保鸡丁 Kung Pao Chicken","鱼香肉丝 Yu Xiang Pork","回锅肉 Twice-cooked Pork","酸菜鱼 Suan Cai Yu","重庆小面 Chongqing Noodles",
-  "担担面 Dan Dan Noodles","麻辣香锅 Mala Dry Pot","香辣蟹 Spicy Crab","口水鸡 Mouth-watering Chicken","手抓饭 Nasi Arab/Bukhari",
-  "鸡饭粒 Chicken Rice Ball","老鼠粉 Lou Shu Fan","酿豆腐 Yong Tau Foo","板面 Pan Mee","炒粿角 Char Kuey Kak",
-  "马来糕 Kuih","娘惹糕 Nyonya Kuih","咖喱角 Curry Puff","卤肉饭 Braised Pork Rice","东炎炒饭 Tom Yum Fried Rice",
+  "甘榜炸鸡 Ayam Goreng Kampung","马来烤鱼 Ikan Bakar","马来羊杂 Sup Kambing","黄姜饭 Nasi Kunyit","印度煎饼 Roti Canai",
+  "飞饼 Roti Tisu","印度甩饼 Murtabak","扁担饭 Nasi Kandar","炭炉烤鸡 Tandoori Chicken","烤饼配咖喱 Naan Set",
+  "香料饭 Briyani","Mee Rebus 卤面","Mee Jawa 爪哇面","Mee Soto 印尼鸡汤面","Lontong 米糕汤",
+  "Soto Ayam 鸡汤","Ayam Percik 烤鸡饭","Nasi Goreng Kampung 马来风味炒饭","Nasi Goreng Pattaya 泰式炒饭包蛋","Nasi Goreng USA",
+  "Nasi Ayam Penyet 印尼捶鸡饭","Nasi Dagang 登嘉楼饭","Nasi Kerabu 蓝花饭","Nasi Arab/Bukhari","Maggi Goreng 炒Maggi",
+  "Maggi Goreng Pattaya","Maggi Sup 汤Maggi","Mee Bandung 麻坡面","Laksa Johor 柔佛叻沙","Laksa Kedah 吉打叻沙",
+  "Laksa Kelantan 吉兰丹叻沙","Satay Kajang 加影沙爹","Ikan Pari Bakar 烤魔鬼鱼","Sambal Udang 参峇虾饭","Ayam Masak Merah 红酱鸡饭",
+  "Ayam Kicap 酱油鸡饭","Sambal Sotong 参峇鱿鱼饭","Sup Tulang 骨汤饭","Kari Kepala Ikan 咖喱鱼头饭","Nasi Tomato 番茄饭",
+  "Sup Ekor 牛尾汤饭","Mee Kari 咖喱面","Mee Siam 暹罗米粉","Mee Hailam 马来炒面","Mee Bandung Muar 麻坡面",
+  "Mee Goreng Basah 湿炒面","Maggi Kari 咖喱Maggi","Murtabak Ayam 鸡肉馅饼","Murtabak Daging 牛肉馅饼","Roti Telur 鸡蛋饼",
+  "Roti Planta 牛油饼","Roti Sardin 沙丁鱼饼",
 
-  // —— 新增 200 道（马来西亚常见中日韩泰西餐） ——
-  // 中餐
-  "小笼包 Xiao Long Bao","生煎包 Sheng Jian Bao","葱油饼 Scallion Pancake","牛肉面 Beef Noodles","羊肉串 Lamb Skewers",
-  "北京烤鸭 Peking Duck","葱爆牛肉 Stir-fried Beef with Scallions","红烧肉 Braised Pork Belly","麻婆豆腐 Mapo Tofu","狮子头 Lion’s Head Meatball",
-  "蒜蓉粉丝虾 Garlic Vermicelli Prawns","铁板豆腐 Hotplate Tofu","椒盐排骨 Salt & Pepper Ribs","油淋鸡 Soy Sauce Chicken","鱼头咖喱 Curry Fish Head",
-  "咸鱼炒饭 Salted Fish Fried Rice","干炒牛河 Beef Hor Fun","姜葱炒蟹 Ginger & Spring Onion Crab","纸包鸡 Paper-wrapped Chicken","蒸水蛋 Steamed Egg",
-  "干锅肥肠 Dry Pot Intestine","粉蒸肉 Steamed Pork with Rice Flour","水煮牛肉 Spicy Boiled Beef","辣子鸡 Chongqing Spicy Chicken","馄饨汤 Wonton Soup",
+  // —— 泰餐 (30 道) ——
+  "Pad Thai 泰式炒粉","Tom Yum Fried Rice 东炎炒饭","Thai Basil Chicken Rice 打抛鸡饭","Thai Pork Leg Rice 猪脚饭","Thai Green Curry with Rice 绿咖喱饭",
+  "Thai Red Curry with Rice 红咖喱饭","Thai Yellow Curry with Rice 黄咖喱饭","Som Tam 木瓜沙拉","Thai Fried Chicken 泰式炸鸡","Thai Pineapple Fried Rice 菠萝炒饭",
+  "Thai Crab Fried Rice 螃蟹炒饭","Thai Shrimp Fried Rice 虾炒饭","Thai Glass Noodle Salad 冬粉沙拉","Thai Tom Yum Noodles 东炎汤面","Thai Boat Noodles 河粉",
+  "Thai Pad Kee Mao 醉鬼炒粉","Thai Basil Pork Rice 打抛猪饭","Thai Omelette Rice 泰式蛋包饭","Thai Chicken Rice 泰式鸡饭","Thai BBQ Pork Rice 烤猪颈肉饭",
+  "Thai Duck Noodles 鸭肉河粉","Thai Beef Noodles 牛肉河粉","Thai Fish Tom Yum Noodles 鱼东炎米粉","Thai Crab Omelette 蟹肉煎蛋饭","Thai Seafood Pad Thai 海鲜炒粉",
+  "Thai Minced Pork Noodles 猪肉米粉","Thai Hotpot with Rice 泰式火锅饭","Thai Steamed Fish Rice 清蒸鱼饭","Thai Fried Squid Rice 炸鱿鱼饭","Thai Curry Fried Noodles 咖喱炒粉",
 
-  // 马来餐 & 印尼餐
-  "马来卤面 Mee Rebus","槟城炒米粉 Penang Fried Bee Hoon","椰浆黄姜鸡 Ayam Masak Merah","仁当鸡 Rendang Ayam","苏东炒鱿鱼 Sotong Goreng",
-  "马六甲鸡饭球 Melaka Chicken Rice Ball","巴东牛肉 Daging Padang","印尼炒饭 Nasi Goreng Indonesia","炸天贝 Tempeh Goreng","巴厘烤猪 Babi Guling",
-  "印尼黄姜鸡 Ayam Percik","炒蕹菜 Kangkung Ikan Masin","加央糯米糕 Pulut Kaya","印尼串烧 Sate Ayam","爪哇面 Mee Jawa",
+  // —— 韩餐 (30 道) ——
+  "Bibimbap 石锅拌饭","Kimchi Fried Rice 泡菜炒饭","Army Stew 部队锅","Samgyeopsal with Rice 韩式烤五花饭","Bulgogi Beef Rice 韩式烤牛肉饭",
+  "Dak Galbi 辣炒鸡排饭","Samgyetang 人参鸡汤","Naengmyeon 冷面","Bibim Naengmyeon 拌冷面","Haemul Pajeon 海鲜煎饼",
+  "Kimchi Jjigae 泡菜汤饭","Doenjang Jjigae 大酱汤饭","Sundubu Jjigae 嫩豆腐汤饭","Gimbap 紫菜包饭","Tteokbokki 辣炒年糕",
+  "Korean Fried Chicken 韩式炸鸡","Galbitang 牛骨汤饭","Seolleongtang 牛骨白汤饭","Ojingeo Bokkeum 辣炒鱿鱼饭","Jjajangmyeon 炸酱面",
+  "Jjamppong 海鲜辣汤面","Korean Pork Cutlet 韩式炸猪排","Korean Hotpot with Rice 韩式火锅饭","Korean Cold Noodles 韩式冷面","Bossam 韩式蒸五花肉饭",
+  "Samgyupsal Bibimbap 五花拌饭","Korean Chicken Mayo Rice 鸡肉蛋黄酱饭","Korean Curry Rice 韩式咖喱饭","Spicy Ramen 韩式辣拉面","Cheese Ramen 芝士拉面",
 
-  // 印度餐
-  "印度香蕉叶饭 Banana Leaf Rice","羊肉咖喱 Mutton Curry","黄油鸡 Butter Chicken","菠菜芝士 Paneer Palak","鹰嘴豆咖喱 Chana Masala",
-  "炸三角饺 Samosa","香辣鸡 Vindaloo","炸鱼咖喱 Fish Curry","印度拉茶拉饼 Teh Tarik Roti Set","印度甜甜圈 Vadai",
-  "马来西亚版Thosai Plain Thosai","印度香饭 Nasi Briyani Mutton","Puri 套餐 Puri Set","Paneer Tikka","Gobi Manchurian (菜花干锅)",
+  // —— 日餐 (50 道) ——
+  "Ramen 拉面","Udon 乌冬面","Soba 荞麦面","Japanese Curry Rice 日式咖喱饭","Unagi Don 鳗鱼饭",
+  "Oyakodon 亲子丼","Gyudon 牛丼","Tendon 天妇罗盖饭","Chirashi Don 刺身丼","Katsudon 炸猪排饭",
+  "Yakitori Don 烤鸡串盖饭","Chashu Ramen 叉烧拉面","Miso Ramen 味噌拉面","Shoyu Ramen 酱油拉面","Shio Ramen 盐味拉面",
+  "Tonkotsu Ramen 豚骨拉面","Hiyashi Chuka 冷中华面","Hiyashi Soba 冷荞麦面","Tsukemen 沾面","Seafood Ramen 海鲜拉面",
+  "Curry Udon 咖喱乌冬","Tempura Udon 天妇罗乌冬","Zaru Soba 冷荞麦面","Nabeyaki Udon 锅烧乌冬","Omu Rice 蛋包饭",
+  "Hambagu 汉堡排饭","Mentaiko Pasta 明太子意面","Okonomiyaki 大阪烧","Takoyaki 章鱼烧","Yakisoba 日式炒面",
+  "Japanese Fried Rice 日式炒饭","Hokkaido Soup Curry 北海道咖喱饭","Hokkaido Butter Corn Ramen 北海道玉米拉面","Chicken Katsu Curry 鸡排咖喱饭","Pork Katsu Curry 猪排咖喱饭",
+  "Torikatsu Don 炸鸡排盖饭","Gyu Katsu Don 炸牛排盖饭","Ebi Fry Curry 炸虾咖喱饭","Ebi Tempura Don 炸虾盖饭","Chicken Karaage Don 炸鸡块盖饭",
+  "Japanese Hotpot with Rice 日式火锅饭","Salmon Don 三文鱼盖饭","Ikura Don 三文鱼籽盖饭","Tonkatsu Bento 炸猪排便当","Saba Shioyaki Bento 烤鲭鱼便当",
+  "Teriyaki Chicken Don 照烧鸡盖饭","Butadon 烤猪肉盖饭","Gindara Saikyo Yaki 银鳕鱼饭","Japanese Hamburg Bento 汉堡排便当","Tamago Don 玉子丼",
 
-  // 泰餐
-  "泰式绿咖喱 Green Curry","泰式红咖喱 Red Curry","泰式黄咖喱 Yellow Curry","泰式打抛猪 Basil Minced Pork","泰式海鲜炒饭 Thai Seafood Fried Rice",
-  "泰式木瓜沙拉 Som Tum","泰式炸鸡 Thai Fried Chicken","泰式椰子冰 Coconut Ice Cream","泰式炸鱼 Deep Fried Thai Fish","泰式米粉 Pad Thai",
-
-  // 韩餐
-  "石锅拌饭 Bibimbap","部队锅 Army Stew","泡菜炒饭 Kimchi Fried Rice","韩式炸鸡 Korean Fried Chicken","烤五花肉 Samgyeopsal",
-  "海鲜葱饼 Haemul Pajeon","冷面 Naengmyeon","韩式年糕 Tteokbokki","大酱汤 Doenjang Jjigae","泡菜汤 Kimchi Jjigae",
-  "韩式牛肉烤肉 Bulgogi","辣炒鸡排 Dak Galbi","牛骨汤 Seolleongtang","参鸡汤 Samgyetang","拌冷面 Bibim Naengmyeon",
-
-  // 日餐
-  "寿司 Sushi","生鱼片 Sashimi","天妇罗 Tempura","鳗鱼饭 Unagi Don","亲子丼 Oyakodon",
-  "日式咖喱饭 Japanese Curry Rice","拉面 Ramen","味噌汤 Miso Soup","章鱼烧 Takoyaki","大阪烧 Okonomiyaki",
-  "炸猪排 Tonkatsu","牛丼 Gyudon","鸡肉串 Yakitori","茶碗蒸 Chawanmushi","日式饺子 Gyoza",
-  "刺身丼 Chirashi Don","冷荞麦面 Zaru Soba","炸虾天丼 Tendon","明太子意面 Mentaiko Pasta","和牛烧 Wagyu BBQ",
-
-  // 西餐 & 国际餐
-  "意大利千层面 Lasagna","意大利肉丸 Spaghetti Meatballs","烤鸡 Roast Chicken","烤羊架 Grilled Lamb Rack","牛肉汉堡 Beef Burger",
-  "卡邦尼意面 Carbonara","烤三文鱼 Grilled Salmon","牛排薯条 Steak Frites","法式蜗牛 Escargot","焗芝士通心粉 Mac & Cheese",
-  "墨西哥卷饼 Burrito","塔可 Taco","芝士玉米片 Nachos","墨西哥烤鸡 Quesadilla","法式烤鸡 Ratatouille Chicken",
-  "炸鱿鱼圈 Calamari","烤马铃薯 Baked Potato","热狗芝士卷 Corn Dog","美式排骨 BBQ Ribs","炸洋葱圈 Onion Rings",
-
-  // 甜品 & 小吃
-  "提拉米苏 Tiramisu","布朗尼 Brownie","巧克力熔岩蛋糕 Lava Cake","马卡龙 Macaron","芝士蛋糕 Cheesecake",
-  "日式抹茶蛋糕 Matcha Cake","铜锣烧 Dorayaki","糯米团子 Dango","鲷鱼烧 Taiyaki","麻糬 Mochi",
-  "印度甜点 Ladoo","印度牛奶球 Gulab Jamun","Kuih Lapis 千层糕","椰丝球 Ondeh-ondeh","Kuih Seri Muka",
-  "泰式椰浆糕 Khanom Chan","越南焦糖布丁 Banh Flan","法式布丁 Creme Brulee","Pavlova 甜点","Gelato 冰淇淋"
+  // —— 西式主食 (50 道) ——
+  "Pizza 披萨","Burger 汉堡","Hotdog 热狗","Fish & Chips 炸鱼薯条","Carbonara 奶油培根意面",
+  "Spaghetti Bolognese 肉酱意面","Lasagna 千层面","Mac & Cheese 芝士通心粉","BBQ Ribs 烤排骨","Steak 牛排",
+  "Lamb Chop 羊排","Roast Chicken 烤鸡","Grilled Salmon 烤三文鱼","Fried Chicken 炸鸡套餐","Chicken Chop 鸡排饭",
+  "Pork Chop 猪排饭","Beef Steak with Fries 牛排薯条","Grilled Lamb Rack 烤羊架","Steak Frites 法式牛排薯条","Escargot 法式蜗牛",
+  "Burrito 墨西哥卷饼","Taco 塔可","Nachos 玉米片","Quesadilla 墨西哥烤饼","Chili Con Carne 牛肉辣豆饭",
+  "Shepherd’s Pie 牧羊人派","Cottage Pie 牛肉派","Roast Pork Belly 烤五花肉","Roast Duck Breast 烤鸭胸","Grilled Sausage 香肠饭",
+  "Garlic Bread 蒜香面包","Caesar Salad 凯撒沙拉","Mushroom Soup 蘑菇汤","Onion Soup 洋葱汤","Chicken Wrap 鸡肉卷",
+  "Beef Wrap 牛肉卷","Corn Dog 热狗芝士卷","Fried Calamari 炸鱿鱼圈","Baked Potato 烤马铃薯","Onion Rings 炸洋葱圈",
+  "Cheese Burger 芝士汉堡","Double Patty Burger 双层牛肉汉堡","Chicken Pizza 鸡肉披萨","Seafood Pizza 海鲜披萨","Pepperoni Pizza 意大利辣香肠披萨",
+  "Hawaiian Pizza 夏威夷披萨","Margarita Pizza 玛格丽塔披萨","Chicken Lasagna 鸡肉千层面","Beef Lasagna 牛肉千层面","Seafood Spaghetti 海鲜意面"
 ];
-
   const wheel = document.getElementById('wheel');
   const ctx = wheel.getContext('2d');
   const itemList = document.getElementById('itemList');
